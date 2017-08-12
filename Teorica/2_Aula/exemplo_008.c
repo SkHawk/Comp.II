@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define OK			0
+#define OK			1
 
 int 
 main (int argc, char *argv [])
