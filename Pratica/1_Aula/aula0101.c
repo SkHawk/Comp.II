@@ -5,9 +5,12 @@
  * Prof. Marcelo Luiz Drumond Lanza
  * Autor: Alexandre Alkmim Chamon
  *
- * $Author$
- * $Date$
- * $Log$
+ * $Author: chamon $
+ * $Date: 2017/08/12 02:16:25 $
+ * $Log: aula0101.c,v $
+ * Revision 1.1  2017/08/12 02:16:25  chamon
+ * Initial revision
+ *
  *
  */
 
@@ -18,6 +21,7 @@
 int
 main ()
 {
+
   printf("\t\tTipos Basicos\n\n");
   printf("char:\n\t\t%lu ",sizeof(char));
   sizeof(char)>1?printf("bytes\n"):printf("byte\n");
@@ -33,4 +37,4 @@ main ()
   return OK;
 }
 
-/* $RCSfile$ */
+/* $RCSfile: aula0101.c,v $ */
