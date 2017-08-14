@@ -5,9 +5,12 @@
  * Prof. Marcelo Luiz Drumond Lanza
  * Autor: Alexandre Alkmim Chamon
  *
- * $Author$
- * $Date$
- * $Log$
+ * $Author: chamon $
+ * $Date: 2017/08/14 01:48:37 $
+ * $Log: aula0104.c,v $
+ * Revision 1.1  2017/08/14 01:48:37  chamon
+ * Initial revision
+ *
  *
  */
 
@@ -39,4 +42,4 @@ main ()
 
 }
 
-/* $RCSfile$ */
+/* $RCSfile: aula0104.c,v $ */
