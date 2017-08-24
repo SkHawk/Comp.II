@@ -1,0 +1,49 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.08.24.02.36.44;	author chamon;	state Exp;
+branches;
+next	;
+
+
+desc
+@Biblioteca .h
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/* 
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2017/2
+ * Prof. Marcelo Luiz Drumond Lanza
+ * Autor: Alexandre Alkmim Chamon
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+ *
+ */
+
+#ifndef _AULA0201_
+#define _AULA0201_ 	"@@(#)aula0201.h $Revision$"
+
+typedef unsigned long long ull;
+
+ull
+CalcularMaximoDivisorComum (ull, ull);
+
+#endif
+
+/* $RCSfile$ */
+@
