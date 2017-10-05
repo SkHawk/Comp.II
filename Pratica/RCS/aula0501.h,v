@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.09.15.16.57.13;	author alexandre.chamon;	state Exp;
+branches;
+next	;
+
+
+desc
+@Biblioteca Serie Harmonica Alterada
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro 
+ * Escola Politecnica 
+ * Departamento de Eletronica e de Computacao 
+ * EEL270 - Computacao II - Turma 2017/2
+ * Prof. Marcelo Luiz Drumond Lanza 
+ * Autor: Alexandre Alkmim Chamon
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+ *
+ */
+
+#ifndef _AULA0501_
+#define _AULA0501_ "@@(#)aula0501.h $Revision$"
+
+float
+CalcularSerieHarmonicaAlternada (unsigned long int);
+
+#endif
+
+/* $RCSfile$  */
+@

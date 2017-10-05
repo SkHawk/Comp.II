@@ -1,0 +1,49 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.08.30.16.33.42;	author alexandre.chamon;	state Exp;
+branches;
+next	;
+
+
+desc
+@Biblioteca Fibonacci
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/* 
+ * Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e de Computacao
+ * EEL270 - Computacao II - Turma 2017/2
+ * Prof. Marcelo Luiz Drumond Lanza
+ * Autor: Alexandre Alkmim Chamon
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+ * 
+ */
+
+#ifndef _AULA0301_
+#define _AULA0301_ 	"@@(#)aula0301.h $Revision$"
+
+typedef unsigned long long ull;
+
+ull
+CalcularTermoSerieFibonacci (unsigned short);
+
+#endif
+
+/* $RCSfile */
+@

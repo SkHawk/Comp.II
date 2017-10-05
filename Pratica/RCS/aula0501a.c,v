@@ -1,0 +1,54 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.09.15.16.57.13;	author alexandre.chamon;	state Exp;
+branches;
+next	;
+
+
+desc
+@Biblioteca recursividade
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*
+ * Universidade Federal do Rio de Janeiro 
+ * Escola Politecnica 
+ * Departamento de Eletronica e de Computacao 
+ * EEL270 - Computacao II - Turma 2017/2
+ * Prof. Marcelo Luiz Drumond Lanza 
+ * Autor: Alexandre Alkmim Chamon
+ *
+ * $Author$
+ * $Date$
+ * $Log$
+ *
+ */
+
+#include "aula0401.h"
+
+float
+CalcularSerieHarmonicaAlternada (unsigned long int numero)
+{
+  
+  if (numero == 0)
+    return (numero);
+  else if ((numero % 2) == 0)
+    return (CalcularSerieHarmonicaAlternada (numero-1) - (1 / CalcularExponencial (numero, numero)));
+  else
+    return (CalcularSerieHarmonicaAlternada (numero-1) + (1 / CalcularExponencial (numero, numero)));
+    
+}
+
+/* $RCSfile$  */
+@

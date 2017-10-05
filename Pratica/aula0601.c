@@ -1,0 +1,137 @@
+/* Universidade Federal do Rio de Janeiro
+ * Escola Politecnica
+ * Departamento de Eletronica e Computacao
+ * EEL270 - Computacao II - Turma 2017/1
+ * Prof. Marcelo Luiz Drumond Lanza
+ * Autor: Alexandre Alkmim Chamon
+ *
+ * $Author: alexandre.chamon $
+ * $Date: 2017/09/27 20:04:04 $
+ * $Log: aula0601.c,v $
+ * Revision 1.1  2017/09/27 20:04:04  alexandre.chamon
+ * Initial revision
+ *
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include "aula0601.h"
+
+tipoErros
+MostrarMonitor (tipoPixel monitor [NUMERO_MAXIMO_LINHAS ] [NUMERO_MAXIMO_COLUNAS ],
+													unsigned maximoLinhas, unsigned maximoColunas)
+{
+	unsigned linha, coluna;
+	
+	if (maximoLinhas > NUMERO_MAXIMO_LINHAS)
+		return (maximoLinhasInvalido);
+	if (maximoColunas > NUMERO_MAXIMO_COLUNAS)
+		return (maximoColunasInvalido);
+	
+	system ("clear");
+
+	for (linha = 0; linha < maximoLinhas; linha++)
+	{
+		for (coluna = 0; coluna < maximoColunas; coluna++)
+			printf ("%c", monitor [linha][coluna] == aceso? ACESO: APAGADO);
+		printf ("\n");
+	}
+	sleep (1);
+
+	return ok;
+}
+
+tipoErros
+LimparMonitor (tipoPixel monitor [NUMERO_MAXIMO_LINHAS] [NUMERO_MAXIMO_COLUNAS],
+													unsigned maximoLinhas, unsigned maximoColunas)
+{
+	unsigned linha, coluna;
+	
+	if (maximoLinhas > NUMERO_MAXIMO_LINHAS)
+		return (maximoLinhasInvalido);
+	if (maximoColunas > NUMERO_MAXIMO_COLUNAS)
+		return (maximoColunasInvalido);
+	
+	for (linha = 0; linha < maximoLinhas; linha++)
+		for (coluna = 0; coluna < maximoColunas; coluna++)
+			monitor [linha][coluna] = apagado;
+	MostrarMonitor (monitor, maximoLinhas, maximoColunas);
+
+	return ok;
+}
+
+tipoErros
+DesenharRetangulo (tipoPixel monitor [NUMERO_MAXIMO_LINHAS ][ NUMERO_MAXIMO_COLUNAS],
+													unsigned maximoLinhas, unsigned maximoColunas,
+													unsigned ordenadaEsquerda, unsigned abscissaEsquerda,
+													unsigned ordenadaDireita, unsigned abscissaDireita)
+{
+	unsigned linha, coluna;
+	
+	if (maximoLinhas > NUMERO_MAXIMO_LINHAS)
+		return (maximoLinhasInvalido);
+	if (maximoColunas > NUMERO_MAXIMO_COLUNAS)
+		return (maximoColunasInvalido);
+	
+	if (ordenadaEsquerda > maximoLinhas)
+		return (ordenadaEsquerdaInvalida);
+	if (abscissaEsquerda > maximoColunas)
+		return (abscissaEsquerdaInvalida);
+	if (ordenadaDireita > maximoLinhas || ordenadaDireita < ordenadaEsquerda)
+		return (ordenadaDireitaInvalida);
+	if (abscissaDireita > maximoColunas || abscissaDireita < abscissaEsquerda)
+		return (abscissaDireitaInvalida);
+
+	for (linha = (ordenadaEsquerda-1); linha < ordenadaDireita; linha++)
+	{
+		monitor [linha][abscissaEsquerda-1] = aceso;
+		monitor [linha][abscissaDireita-1] = aceso;
+	}
+	for (coluna = (abscissaEsquerda-1); coluna < abscissaDireita; coluna++)
+	{
+		monitor [ordenadaDireita-1][coluna] = aceso;
+		monitor [ordenadaEsquerda-1][coluna] = aceso;
+	}
+
+	MostrarMonitor (monitor, maximoLinhas, maximoColunas);
+
+	return ok;
+}
+
+tipoErros
+PreencherPoligono (tipoPixel monitor [NUMERO_MAXIMO_LINHAS ][ NUMERO_MAXIMO_COLUNAS],
+													unsigned maximoLinhas, unsigned maximoColunas,
+													unsigned linha, unsigned coluna)
+{
+	if (maximoLinhas > NUMERO_MAXIMO_LINHAS)
+		return (maximoLinhasInvalido);
+	if (maximoColunas > NUMERO_MAXIMO_COLUNAS)
+		return (maximoColunasInvalido);
+	
+	if (linha > maximoLinhas)
+		return (linhaInvalida);
+	if (coluna > maximoColunas)
+		return (colunaInvalida);
+	
+	if (monitor [linha][coluna] == apagado)
+	{
+		monitor [linha][coluna] = aceso;
+
+		MostrarMonitor (monitor, maximoLinhas, maximoColunas);
+		if (linha != maximoLinhas)
+			PreencherPoligono (monitor, maximoLinhas, maximoColunas, linha + 1, coluna);
+		if (linha != 0)
+			PreencherPoligono (monitor, maximoLinhas, maximoColunas, linha - 1, coluna);
+		if (coluna != maximoColunas)
+			PreencherPoligono (monitor, maximoLinhas, maximoColunas, linha, coluna + 1);
+		if (coluna != 0)
+			PreencherPoligono (monitor, maximoLinhas, maximoColunas, linha, coluna - 1);
+	}
+
+	return ok;
+}
+
+/*$RCSfile: aula0601.c,v $*/
